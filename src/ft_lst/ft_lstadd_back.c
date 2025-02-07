@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 21:22:42 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/29 21:22:42 by fpedraza         ###   ########.fr       */
+/*   Created: 2022/03/29 21:19:46 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/29 21:19:46 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
-void	ft_lstiter(t_list *root, void (*f)(void *))
+void	ft_lstadd_back(t_list **root, t_list *new)
 {
 	t_list	*ptr;
 
-	ptr = root;
-	while (ptr != NULL)
-	{
-		(f)(ptr->content);
-		ptr = ptr->next;
-	}
+	ptr = ft_lstlast(*root);
+	if (ptr != NULL)
+		ptr->next = new;
+	else
+		*root = new;
 }
 
 /*
-    Parámetros #1. Un puntero al primer elemento de una lista.
-#2. Un puntero a la función que se aplicará a cada
-elemento de la lista.
+Parámetros #1. La dirección de un puntero al primer elemento
+de una lista.
+#2. Un puntero al elemento nuevo que añadir a la
+lista.
 Valor devuelto Nada
 Funciones autorizadas
 Ninguna
-Descripción Itera la lista ’lst’ y aplica la función ’f’ al
-contenido de cada elemento.
-
+Descripción Añade el elemento ’new’ al final de una lista
 */

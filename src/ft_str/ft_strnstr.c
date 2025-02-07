@@ -6,11 +6,11 @@
 /*   By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:02:55 by fpedraza          #+#    #+#             */
-/*   Updated: 2025/02/01 20:41:09 by fpedraza         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:09:36 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 char	*ft_strnstr(char *str, char *to_find, unsigned int len)
 {

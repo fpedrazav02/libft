@@ -6,11 +6,11 @@
 /*   By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:46:49 by fpedraza          #+#    #+#             */
-/*   Updated: 2025/02/01 20:31:39 by fpedraza         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:09:36 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 //  int	ft_strlen( const char *str)
 //  {
 // 	int i;

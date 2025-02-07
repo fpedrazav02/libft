@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 21:21:13 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/29 21:21:13 by fpedraza         ###   ########.fr       */
+/*   Created: 2022/03/29 21:22:42 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/29 21:22:42 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
-void	ft_lstadd_front(t_list **root, t_list *new)
+void	ft_lstiter(t_list *root, void (*f)(void *))
 {
-	new->next = *root;
-	*root = new;
+	t_list	*ptr;
+
+	ptr = root;
+	while (ptr != NULL)
+	{
+		(f)(ptr->content);
+		ptr = ptr->next;
+	}
 }
 
 /*
-Parámetros #1. La dirección de un puntero al primer elemento
-de una lista.
-#2. La dirección de un puntero al elemento a añadir
-a la lista.
+    Parámetros #1. Un puntero al primer elemento de una lista.
+#2. Un puntero a la función que se aplicará a cada
+elemento de la lista.
 Valor devuelto Nada
 Funciones autorizadas
 Ninguna
-Descripción Añade el elemento ’new’ al principio de la lista.
+Descripción Itera la lista ’lst’ y aplica la función ’f’ al
+contenido de cada elemento.
+
 */
