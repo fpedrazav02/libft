@@ -52,10 +52,20 @@ FTLST_DIR		=	$(SRC_DIR)ft_lst/ft_lstadd_back.c \
 					$(SRC_DIR)ft_lst/ft_lstlast.c \
 					$(SRC_DIR)ft_lst/ft_lstmap.c \
 					$(SRC_DIR)ft_lst/ft_lstnew.c \
-					$(SRC_DIR)ft_lst/ft_lstsize.c
+					$(SRC_DIR)ft_lst/ft_lstsize.c \
 
+FTPRINTF_DIR	=	$(SRC_DIR)ft_printf/ft_hex.c \
+					$(SRC_DIR)ft_printf/ft_printchar.c \
+					$(SRC_DIR)ft_printf/ft_printf.c \
+					$(SRC_DIR)ft_printf/ft_printnbr.c \
+					$(SRC_DIR)ft_printf/ft_printp.c \
+					$(SRC_DIR)ft_printf/ft_printpercent.c \
+					$(SRC_DIR)ft_printf/ft_printstr.c \
+					$(SRC_DIR)ft_printf/ft_printunbr.c \
+
+FT_GNL_DIR		=	$(SRC_DIR)get_next_line/get_next_line.c \
 # All source files
-SRCS 			= $(FTIS_DIR) $(FTMEM_DIR) $(FTPUT_DIR) $(FTTO_DIR) $(FTSTR_DIR) $(FTLST_DIR)
+SRCS 			= $(FTIS_DIR) $(FTMEM_DIR) $(FTPUT_DIR) $(FTTO_DIR) $(FTSTR_DIR) $(FTLST_DIR) $(FTPRINTF_DIR) $(FT_GNL_DIR)
 OBJS 			= $(patsubst $(SRC_DIR)%, $(BUILD_DIR)/%, $(SRCS:.c=.o))
 
 
@@ -98,4 +108,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# Norminette rule
+norm:
+	@echo "[$(CYAN)Norminette$(WHITE)]"
+	@python3 -m norminette $(SRC_DIR) | grep -v "OK\!" || true
+
+.PHONY: all clean fclean re norm
